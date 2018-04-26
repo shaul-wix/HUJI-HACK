@@ -1,15 +1,20 @@
-define(['lodash'], function (_) {
-	'use strict';
+const getUserData = () => {
 
-	const getUrl = () => {
-		return './a.png';
-	};
-
+	const icon = require("./assets/icon-button-test.png");
+	const background = require("./assets/backgroung-button-test.png");
 	return {
-		getUrl: getUrl
+		back: background,
+		icon: icon,
+		username: 'Shaul',
+		lastname: 'Robinov',
+		dist: 123
 	};
+};
 
-});
+export {
+	getUserData
+};
+
 
 
 
