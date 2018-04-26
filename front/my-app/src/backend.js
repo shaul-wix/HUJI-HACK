@@ -15,7 +15,154 @@ const getFeedData = () => {
 		username: 'Shira',
 		dist: 456,
 		favor: 'favor shira'
-	}];
+	},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		},
+		{
+			back: background,
+			icon: icon,
+			username: 'Shira',
+			dist: 456,
+			favor: 'favor shira'
+		}];
 };
 
 export {
