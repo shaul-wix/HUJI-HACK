@@ -1,0 +1,25 @@
+{
+  "name": "huji-hack",
+  "version": "1.0.0",
+  "description": "FAvors\u001b[D\u001b[D\u001b[D\u001b[a",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaul-wix/HUJI-HACK.git"
+  },
+  "author": "David Baraban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaul-wix/HUJI-HACK/issues"
+  },
+  "homepage": "https://github.com/shaul-wix/HUJI-HACK#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.7",
+    "mongoose": "^5.0.16"
+  }
+}
