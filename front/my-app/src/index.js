@@ -8,26 +8,26 @@ import './backend'
 function UserPost(props) {
 	const {background, icon, userName, favor, onclickfunc } = props;
 	return (
-		<div>
-			<div className="container" onClick={onclickfunc}>
-				<img className="imageOne" src ={background}/>
-				<img className="imageTwo" src={icon} width={30} height={30}/>
-				<div className='userNameDescription'>
-					<p className='userName'>Do {userName} a Favor</p>
-				</div>
-				<div className='distDescription'>
-					<p className='dist'>dist</p>
-				</div>
-				<div className='favorDescription'>
-					<p className='favor'>{favor}</p>
-				</div>
+			<div className="postContainer" onClick={onclickfunc}>
+				<button className="post">
+					<img  src={icon} width={30} height={30}/>
+					<div >
+						<p>Do {userName} a Favor</p>
+					</div>
+					<div >
+						<p >dist</p>
+					</div>
+					<div >
+						<p style = {{fontWeight: 'bold'}}>{favor}</p>
+					</div>
+				</button>
 			</div>
-		</div>
+	);
+}
 
-
-
-
-
+function Header() {
+	return(
+		<p>Headline</p>
 	);
 }
 
@@ -49,8 +49,8 @@ class AppFeed extends React.Component {
 
 	render() {
 		return (
-			<div className="m">
-				<div className="mainApp" style={{maxHeight: 100}}>
+				<div className="mainApp">
+					<p>l;kdsnfg;lsdkfnv</p>
 					{this.feedData.map((singlePost, index) => {
 						return <UserPost key={index}
 										 background={singlePost.back}
@@ -107,7 +107,6 @@ class AppFeed extends React.Component {
 					</Popup>
 
 				</div>
-			</div>
 
 		)
 	}
@@ -115,6 +114,9 @@ class AppFeed extends React.Component {
 }
 
 ReactDOM.render(
-	<AppFeed />,
+	<div>
+		<Header/>
+		<AppFeed />
+	</div>,
 	document.getElementById('root')
 );
