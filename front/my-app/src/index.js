@@ -6,15 +6,27 @@ import './index.css';
 import './backend'
 
 function UserPost(props) {
-	const {background, icon, userName, lastName, dist, onclickfunc } = props;
+	const {background, icon, userName, favor, onclickfunc } = props;
 	return (
-		<div className='a' onClick={onclickfunc}>
-			<img alt="" src={icon}/>
-			<img alt="" src={background} width={300} height={50} />
-			<div>{userName}</div>
-			<div>{lastName}</div>
-			<div>{dist}</div>
+		<div>
+			<div className="container" onClick={onclickfunc}>
+				<img className="imageOne" src ={background}/>
+				<img className="imageTwo" src={icon} width={30} height={30}/>
+				<div className='userNameDescription'>
+					<p className='userName'>Do {userName} a Favor</p>
+				</div>
+				<div className='distDescription'>
+					<p className='dist'>dist</p>
+				</div>
+				<div className='favorDescription'>
+					<p className='favor'>{favor}</p>
+				</div>
+			</div>
 		</div>
+
+
+
+
 
 	);
 }
@@ -43,8 +55,8 @@ class AppFeed extends React.Component {
 									 background={singlePost.back}
 									 icon={singlePost.icon}
 									 userName={singlePost.username}
-									 lastName={singlePost.lastname}
 									 dist={singlePost.dist}
+									 favor={singlePost.favor}
 									 onclickfunc={this.togglePopup.bind(this)}>
 					</UserPost>;
 

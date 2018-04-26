@@ -31,13 +31,6 @@ function UserPost(props) {
 				<div class='favorDescription'>
 					<p class='favor'>favor</p>
 				</div>
-				
-				
-				
-				{/* <div class="userName">userName</div> */}
-				{/* <div>{userName}</div> */}
-				{/* <div>{lastName}</div>
-				<div>{dist}</div> */}
 			</div>
 		</div>
 

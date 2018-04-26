@@ -29,3 +29,57 @@ html, body, .app {
     margin: auto;
     background: white;
 }
+
+.container {
+    position: relative;
+    width: 150px;/*Or whatever you want*/
+}
+.imageOne {
+    width: 150%;
+}
+.imageTwo {
+    position: absolute;
+    top: 46%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+div.userNameDescription{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom:12%;
+    left:33%;
+    width:100%;
+
+}
+p.userName{
+    padding:5px;
+    padding-left:20%;
+    margin:0px;
+    font-size: 12px;
+}
+
+div.distDescription{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom:30%;
+    left: 125%;
+    width:100%;
+}
+
+p.dist{
+    padding:5px;
+    margin:0px;
+    font-size: 12px;
+}
+
+div.favorDescription{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    top:8%;
+    left: 53%;
+    width:100%;
+}
+
+p.favor{
+    padding:5px;
+    margin:0px;
+    font-size: 16px;
+}
