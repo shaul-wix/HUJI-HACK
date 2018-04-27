@@ -35,7 +35,7 @@ body {
     width: 868px;
     margin: auto;
     outline: 0;
-    display: flex;
+    display: inline-flex;
 }
 .icon{
     padding-left: 38px;
@@ -88,8 +88,6 @@ div.imgContainer>img{
 }
 
 
-
-
 .modal {
     font-size: 12px;
 }
@@ -123,14 +121,45 @@ div.imgContainer>img{
     border-radius: 18px;
     border: 1px solid #cfcece;
 }
+
+
 p.favor{
     color: white;
+    font-size: 45px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+p.km{
+    font-size: 30px;
+}
+.postText{
+    padding-right: 9px;
+}
+.distDiv{
+    padding-right: 9px;
+    float: right;
+}
+p.dist{
     font-size: 40px;
+    float: right;
 }
 
 div.bottomStr>p{
+    font-size: 35px;
+}
+div.bottomStr>strong{
     font-size: 30px;
 }
 .bottomStr{
     display: flex;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.icon{
+    float: left;
 }

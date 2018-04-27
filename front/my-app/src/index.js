@@ -7,20 +7,25 @@ import './backend'
 
 const assets = getGlobalAssets();
 function UserPost(props) {
-	const {userName, favor, onclickfunc } = props;
+	const {userName, favor, onclickfunc, dist } = props;
 	return (
 			<div className="postContainer" onClick={onclickfunc}>
 				<button className="post">
 					<div className="icon">
 						<img  src={assets.carIcon}/>
 					</div>
-					<div >
+					<div className="postText">
 						<p className="favor">{favor}</p>
 						<div className="bottomStr">
-							<p className="do">Do   </p>
-							<p className="userName">{userName}</p>
-							<p className="aa"> a Favor</p>
+							<p>Do <span>{userName}</span> a Favor</p>
 						</div>
+					</div>
+					<div className="line">
+						<img  src={assets.line}/>
+					</div>
+					<div className="distDiv">
+						<p className="dist">{dist}</p>
+						<p className="km">km</p>
 					</div>
 				</button>
 			</div>
