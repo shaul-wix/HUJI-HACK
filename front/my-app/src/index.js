@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Popup from 'reactjs-popup';
-import {getFeedData, getGlobalAssets} from "./backend";
+import {getFeedData, getGlobalAssets, getCategoryImage} from "./backend";
 import './index.css';
 import './backend'
 
 const assets = getGlobalAssets();
 function UserPost(props) {
-	const {userName, favor, onclickfunc, dist } = props;
+	const {icon, userName, favor, onclickfunc, dist } = props;
 	return (
 			<div className="postContainer" onClick={onclickfunc}>
 				<button className="post">
 					<div className="icon">
-						<img  src={assets.carIcon}/>
+						<img  src={icon}/>
 					</div>
 					<div className="postText">
 						<p className="favor">{favor}</p>
@@ -71,14 +71,16 @@ class AppFeed extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			showPopup: false
+			showPopup: false,
+			currentPostData: null
 		};
 		this.feedData = getFeedData();
 	}
 
 	togglePopup() {
 		this.setState({
-			showPopup: !this.state.showPopup
+			showPopup: !this.state.showPopup,
+			currentPostData: this.curPost
 		});
 	}
 
@@ -88,17 +90,18 @@ class AppFeed extends React.Component {
 				<Header/>
 				<div className="feed">
 					{this.feedData.map((singlePost, index) => {
+						this.curPost = singlePost;
 						return <UserPost key={index}
-										 background={singlePost.back}
-										 icon={singlePost.icon}
-										 userName={singlePost.username}
-										 dist={singlePost.dist}
-										 favor={singlePost.favor}
+										 icon={getCategoryImage(singlePost.category)}
+										 userName={singlePost.userName}
+										 dist={singlePost.distance}
+										 favor={singlePost.header}
 										 onclickfunc={this.togglePopup.bind(this)}>
 						</UserPost>;
 
 					})}
-					<Popup open={this.state.showPopup}
+					<Popup
+						   open={this.state.showPopup}
 						   modal>
 						{close => (
 							<div className="modal">
@@ -106,13 +109,16 @@ class AppFeed extends React.Component {
 									&times;
 								</a>
 								<div className="content">
-
+									<img src={assets.carIcon}/>
+									<p>{this.state.currentPostData.dist} km away from you</p>
+									<p>{this.state.currentPostData.favor}</p>
+									<p>Added by {this.state.currentPostData.username}</p>
+									<p>{this.state.currentPostData.description}</p>
 								</div>
 								<div className="actions">
 									<button
 										className="doFavor"
 										onClick={() => {
-											console.log('modal closed ');
 											close()
 										}}
 									>
@@ -138,3 +144,5 @@ ReactDOM.render(
 	</div>,
 	document.getElementById('root')
 );
+
+//width = 868, height = 1206

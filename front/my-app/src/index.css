@@ -90,20 +90,21 @@ div.imgContainer>img{
 
 .modal {
     font-size: 12px;
+    background-color: #f28e9e;
 }
 .modal > .header {
-    width: 100%;
+    width: 1000px;
     border-bottom: 1px solid gray;
     font-size: 18px;
     text-align: center;
     padding: 5px;
 }
 .modal > .content {
-    width: 100%;
+    width: 1000px;
     padding: 10px 5px;
 }
 .modal > .actions {
-    width: 100%;
+    width: 1000px;
     padding: 10px 5px;
     margin: auto;
     text-align: center;
@@ -114,14 +115,13 @@ div.imgContainer>img{
     display: block;
     padding: 2px 5px;
     line-height: 20px;
-    right: 10px;
-    top: 10px;
+    right: -10px;
+    top: -10px;
     font-size: 24px;
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid #cfcece;
 }
-
 
 p.favor{
     color: white;
@@ -156,6 +156,9 @@ div.bottomStr>strong{
     padding-top: 3px;
 }
 
+.post>div{
+    margin: auto;
+}
 span {
     font-weight: bold;
 }
