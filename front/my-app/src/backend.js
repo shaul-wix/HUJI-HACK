@@ -7,6 +7,7 @@ const getGlobalAssets = () => {
 	const houseIcon = require("./assets/house-icon.png");
 	const carIcon = require("./assets/car-icon.png");
 	const dogIcon = require("./assets/dog-icon.png");
+	const line = require("./assets/line.png");
 
 	return {
 		refreshButton: refreshButton,
@@ -16,7 +17,8 @@ const getGlobalAssets = () => {
 		whiteDot: whiteDot,
 		houseIcon: houseIcon,
 		carIcon: carIcon,
-		dogIcon: dogIcon
+		dogIcon: dogIcon,
+		line: line
 	};
 
 };
@@ -24,15 +26,15 @@ const getFeedData = () => {
 	return [{
 		username: 'Shaul ',
 		dist: 123,
-		favor: 'favor shaul'
+		favor: 'Replacing Car Tire'
 	},{
 		username: 'Shaul ',
 		dist: 123,
-		favor: 'favor shaul'
+		favor: 'Replacing Car Tire'
 	},{
 		username: 'Shaul ',
 		dist: 123,
-		favor: 'favor shaul'
+		favor: 'Replacing Car Tire'
 	},{
 		username: 'Shaul ',
 		dist: 123,
