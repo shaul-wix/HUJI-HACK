@@ -1,36 +1,66 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Popup from 'reactjs-popup';
-import {getFeedData} from "./backend";
+import {getFeedData, getGlobalAssets} from "./backend";
 import './index.css';
 import './backend'
 
+const assets = getGlobalAssets();
 function UserPost(props) {
-	const {background, icon, userName, favor, onclickfunc } = props;
+	const {userName, favor, onclickfunc } = props;
 	return (
 			<div className="postContainer" onClick={onclickfunc}>
 				<button className="post">
-					<img  src={icon} width={30} height={30}/>
-					<div >
-						<p>Do {userName} a Favor</p>
+					<div className="icon">
+						<img  src={assets.carIcon}/>
 					</div>
 					<div >
-						<p >dist</p>
-					</div>
-					<div >
-						<p style = {{fontWeight: 'bold'}}>{favor}</p>
+						<p className="favor">{favor}</p>
+						<div className="bottomStr">
+							<p className="do">Do   </p>
+							<p className="userName">{userName}</p>
+							<p className="aa"> a Favor</p>
+						</div>
 					</div>
 				</button>
 			</div>
 	);
 }
+function TopBar() {
+	return(
+		<div className="topBar">
+			<img src={assets.topBarPink}/>
+		</div>
+	)
+}
+
+function Logo() {
+	return(
+		<div className="logo">
+			<img src={assets.logo}/>
+		</div>
+	)
+}
 
 function Header() {
 	return(
-		<p>Headline</p>
+		<div>
+			<img className="refreshBtn" src={assets.refreshButton}/>
+			<p className="nearby">Nearby</p>
+		</div>
 	);
 }
 
+function Footer() {
+	return(
+		<div className="footer">
+			<div className="imgContainer">
+				<img src={assets.blueDot}/>
+				<img src={assets.whiteDot}/>
+			</div>
+		</div>
+	)
+}
 
 class AppFeed extends React.Component {
 	constructor() {
@@ -39,7 +69,6 @@ class AppFeed extends React.Component {
 			showPopup: false
 		};
 		this.feedData = getFeedData();
-		// this.get = get;
 	}
 
 	togglePopup() {
@@ -51,7 +80,7 @@ class AppFeed extends React.Component {
 	render() {
 		return (
 			<div className="mainApp">
-				<p className="nearby">Nearby</p>
+				<Header/>
 				<div className="feed">
 					{this.feedData.map((singlePost, index) => {
 						return <UserPost key={index}
@@ -66,14 +95,30 @@ class AppFeed extends React.Component {
 					})}
 					<Popup open={this.state.showPopup}
 						   modal>
-						{/*<div>*/}
-							{/*{this.get()}*/}
-						{/*</div>*/}
+						{close => (
+							<div className="modal">
+								<a className="close" onClick={close}>
+									&times;
+								</a>
+								<div className="content">
+
+								</div>
+								<div className="actions">
+									<button
+										className="doFavor"
+										onClick={() => {
+											console.log('modal closed ');
+											close()
+										}}
+									>
+										close modal
+									</button>
+								</div>
+							</div>
+						)}
 					</Popup>
 				</div>
 			</div>
-
-
 		)
 	}
 
@@ -81,8 +126,10 @@ class AppFeed extends React.Component {
 
 ReactDOM.render(
 	<div>
-		<Header/>
+		<TopBar/>
+		<Logo/>
 		<AppFeed />
+		<Footer/>
 	</div>,
 	document.getElementById('root')
 );
