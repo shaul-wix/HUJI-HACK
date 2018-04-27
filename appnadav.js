@@ -5,8 +5,13 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
+const socket = require('socket.io');
 
 const app = express();
+// const server = require('http').createServer(app);
+const server = app.listen(3000, function () {
+    console.log('listening on port 3000');
+})
 
 const mongoDB = "mongodb://favors:favors@ds159509.mlab.com:59509/favors";
 
@@ -14,6 +19,8 @@ mongoose.connect(mongoDB);
 const db = mongoose.connection;
 
 const SUCCESS = 1;
+const PENDING = 0;
+const IN_PROCESS = 1;
 
 /** SCHEMAS AND MODELS **/
 
@@ -33,7 +40,8 @@ const postSchema = new mongoose.Schema({
     location: [Number, Number],
     postHeader: String,
     postText: String,
-    postCategory: String
+    postCategory: String,
+    status: Number
 });
 const Post = mongoose.model('Post', postSchema);
 
@@ -92,7 +100,7 @@ const makeUser = function(userName, cb){
 
 const makePost = function(userName, postHeader, postText, location, postCategory, cb){
     const post = new Post({name: userName, location: location, postHeader: postHeader,
-        postText:postText, postCategory: postCategory});
+        postText:postText, postCategory: postCategory, status: PENDING});
     post.save(function(err) {
         if (err){
             cb(err)
@@ -103,24 +111,46 @@ const makePost = function(userName, postHeader, postText, location, postCategory
     })
 };
 
+const updatePostStatus = function(postHeader, status, cb){
+    Post.findOne({postHeader: postHeader}, function(err, data){
+        if (err) {
+            cb(err);
+        }
+        else
+        {
+            data.status = status;
+            data.save(function(err){
+                if (err){
+                    cb(err);
+                }
+                else{
+                    cb(SUCCESS);
+                }
+            })
+        }
+    })
+}
 
-getUser("Shaul Robinov", console.log);
 
-
-
+/** MIDDLEWARE **/
 
 // Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: false}));
+
+// Path middleware
+app.use(express.static('public'));
+
+/** SERVER LOGIC **/
 
 app.get('/', function(req, res) {
-    res.send('This should be a button');
-})
+    res.sendFile('C:\\Users\\Nadav_LT\\Desktop\\HUJI-HACK\\public\\nadav.html');
+});
 
-app.get('/button', function(req, res){
-    res.send('Hi Shira');
-})
 
-app.listen(3000, function(){
-    console.log('Server started on port 3000')
+const io = socket(server);
+
+io.on('connection', function(socket){
+    console.log("Made connection!");
+    socket.emit('nadav', "success!");
 })
